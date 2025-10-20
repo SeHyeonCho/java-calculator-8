@@ -24,7 +24,11 @@ public class Application {
         String[] numbers = input.split(buildRegex(delimiters));
         for (String number : numbers) {
             try {
-                sum += Integer.parseInt(number);
+                int parseInt = Integer.parseInt(number);
+                if (parseInt < 0) {
+                    throw new IllegalArgumentException(("잘못된 입력 값 입니다."));
+                }
+                sum += parseInt;
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException(("잘못된 입력 값 입니다."));
             }
